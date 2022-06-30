@@ -1,0 +1,7 @@
+{
+    "require": {
+        "dompdf/dompdf": "^1.0",
+        "guzzlehttp/guzzle": "^7.0",
+        "fabpot/goutte": "^4.0"
+    }
+}

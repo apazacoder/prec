@@ -1,0 +1,19 @@
+// common styles
+body {
+  .clear {
+    clear: both;
+  }
+
+  #backend {
+    ul {
+      list-style-type: disc;
+      list-style-position: inside;
+    }
+
+    ul li {
+      list-style: disc outside;
+    }
+  }
+}
+// to prefix assets import in absolute paths like url:
+$plugin_url: '/wp-content/plugins/precioscrapper/backend/';

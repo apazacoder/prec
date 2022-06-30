@@ -1,0 +1,302 @@
+// BACKEND STYLES
+@import 'bootstrap';
+@import 'mdi_icons.min';
+@import '_bulma.min.css';
+@import '_grid12.css';
+
+/* switch sections effect */
+.router-anim-enter-active {
+  animation: coming .3s;
+  animation-delay: .15s;
+  opacity: 0;
+}
+
+.router-anim-leave-active {
+  animation: going .3s;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+@keyframes going {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+}
+
+@keyframes coming {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* specific admin styles */
+#backend {
+  .bold{
+    font-weight: bold;
+  }
+  .clear{
+    clear:both;
+  }
+  .center-align{
+    text-align: center;
+  }
+
+  select:disabled {
+    color: #585858;
+  }
+
+  padding-right: 1rem;
+
+  h1 {
+    font-size: 23px;
+    font-weight: 400;
+    margin: 0;
+    padding: .5rem 0 .5rem 0;
+    line-height: 1.3;
+  }
+
+  h2 {
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+
+  .nav {
+    justify-content: center;
+
+    .column {
+      padding: .25rem .35rem;
+    }
+
+    .button {
+      background: #455a64;
+      width: 100%;
+    }
+
+    .router-link-exact-active {
+      background: #2366d1;
+    }
+  }
+
+  .right-align {
+    text-align: right;
+  }
+
+  /* table styling*/
+  .table-wrapper{
+    overflow-x: auto;
+  }
+  .crud-table {
+    transition: 35;
+
+    &.is-loading {
+      opacity: .5;
+    }
+
+    td, th {
+      text-align: center;
+      line-height: 1rem;
+      vertical-align: middle;
+    }
+
+    th:last-child {
+      min-width: 120px;
+    }
+
+    td {
+      .button {
+        padding: 0 1rem;
+        margin: 0 .3rem;
+      }
+    }
+
+    tfoot {
+      line-height: 1.4rem;
+
+      .button.is-light {
+        background-color: #cfd8dc;
+      }
+
+      .button.active {
+        background-color: #37474f !important;
+        opacity: 1;
+      }
+    }
+
+    // table styles
+    &.table-customers {
+      font-size: .9rem;
+    }
+
+
+  }
+
+  .field-checkbox {
+    align-self: flex-end;
+  }
+
+
+  /*modal*/
+  .modal {
+    z-index: 10000;
+
+    &.fluid-modal {
+      @media only screen and (min-width: 769px) {
+        .modal-card, .modal-content {
+          width: 90%;
+        }
+      }
+    }
+  }
+
+  .modal .modal-card-foot {
+    justify-content: center;
+  }
+
+  .progress {
+    background-image: linear-gradient(to right, #00D1B2 30%, #ededed 30%);
+    height: .4rem;
+    margin-bottom: 0;
+  }
+
+  .progress.not-processing {
+    background: none;
+  }
+
+  .modal .modal-card-foot {
+    flex-wrap: wrap;
+  }
+
+  .modal .modal-card-foot .progress {
+    width: 100%;
+  }
+
+  .component-notification {
+    position: fixed;
+    z-index: 10;
+    min-width: 200px;
+    top: 2rem;
+    right: -50%;
+    opacity: .9;
+    transition: .35s;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .component-notification.is-visible {
+    right: 0;
+  }
+
+  //services checkboxes
+  .checkboxes-wrapper {
+    .checkbox-field {
+      width: 50%;
+      float: left;
+    }
+  }
+
+  // services table
+  .services-table {
+    font-size: .9rem;
+
+    tr {
+      th:last-child, td:last-child {
+        min-width: 215px;
+      }
+    }
+  }
+
+  // services table inner table
+  .simple-centered-table {
+    width: 100%;
+
+    td, th {
+      text-align: center;
+      font-weight: normal;
+      border: 1px solid #ccc;
+      vertical-align: middle;
+    }
+
+    &.plans-services-table {
+      font-size: .9rem;
+
+      td, th {
+        text-align: left;
+      }
+      th:nth-child(1){
+        border: none;
+      }
+      .check-all-btn{
+        width: 100%;
+        min-width: 50px;
+      }
+
+      label{
+        width: 100%;
+        span{
+          display: inline-blocK;
+          width: calc(100% - 30px);
+        }
+      }
+    }
+  }
+
+  .plans-table {
+    tr {
+      th:last-child, td:last-child {
+        min-width: 215px;
+      }
+    }
+  }
+  .customers-table{
+    tr {
+      th:last-child, td:last-child {
+        min-width: 215px;
+      }
+    }
+  }
+
+}
+
+// Enablers logic
+.enablers-wrapper {
+  .plans-wrapper {
+    overflow-x: auto;
+
+    .plan {
+      padding: 0 8px 10px;
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      li {
+        .is-generic {
+          color: #555;
+        }
+      }
+
+      .plan-card {
+        border-radius: 10px;
+        padding: .3rem .7rem .6rem;
+      }
+    }
+  }
+}

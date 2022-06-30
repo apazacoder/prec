@@ -1,0 +1,360 @@
+// FRONTEND STYLES
+@import 'bootstrap';
+@import 'surface_styles.scss';
+@import 'grid100.css';
+@import 'mdi_icons.min';
+
+/* switch sections effect */
+.router-anim-enter-active {
+  animation: coming .3s;
+  animation-delay: .15s;
+  opacity: 0;
+}
+
+.router-anim-leave-active {
+  animation: going .3s;
+}
+
+@keyframes going {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+}
+
+@keyframes coming {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+// frontend styles
+.scrapper-app {
+  // framework customizations
+  label {
+    input[type="text"] {
+      padding-top: 0;
+    }
+  }
+
+  // card styles
+  .step-card {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 700px;
+    position: relative;
+
+    &.without-bg {
+      background: none;
+      box-shadow: none;
+    }
+
+    .progress {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    .question {
+      text-align: center;
+      font-size: 1.3rem;
+    }
+
+    .btn-selector {
+      font-family: "Roboto Light";
+      width: 100%;
+      font-size: 1.2rem;
+      line-height: 1.2;
+      text-transform: none;
+      letter-spacing: 0.03rem;
+      padding: 15px 20px;
+    }
+
+    .mini-question {
+      font-size: 1.1rem;
+      padding: 10px;
+      text-align: left;
+      transition: .2s;
+
+      .mq-text {
+        width: calc(100% - 160px);
+        float: left;
+      }
+
+      .mq-answer {
+        width: 80px;
+        text-align: right;
+        float: left;
+      }
+
+      &:nth-child(2n) {
+        background: #ECEFF1;
+      }
+
+      &:hover {
+        background: #E1E6EA;
+      }
+
+      .clear {
+        clear: both;
+      }
+    }
+
+    .fields {
+      margin-top: 20px;
+    }
+
+    .input-field {
+      &.half {
+        width: calc(50% - 5px);
+        float: left;
+
+        &:nth-child(2n+1) {
+          margin-left: 10px;
+        }
+      }
+
+      label {
+        font-size: .95rem;
+
+        input[type="text"] {
+          margin-bottom: 10px;
+          background-size: 0%, 100%;
+          width: 100%;
+          padding-bottom: 1px;
+          color: #000;
+          font-family: "Roboto Light";
+
+          &:focus {
+            background-size: 100%, 100%;
+          }
+        }
+      }
+    }
+
+
+    .checkboxes {
+      margin-bottom: 15px;
+    }
+
+
+    .checkbox-field {
+      label {
+        font-size: 1rem;
+
+        input[type="checkbox"] {
+          margin-right: 10px;
+        }
+      }
+
+      &.half {
+        float: left;
+        width: 50%;
+      }
+    }
+
+    .errors {
+      text-align: center;
+      font-size: 1.05rem;
+    }
+
+    @media only screen and (max-width: 500px) {
+      .input-field.half {
+        width: 100%;
+
+        &:nth-child(2n+1) {
+          margin-left: 0
+        }
+      }
+
+      .checkbox-field.half {
+        width: 100%;
+      }
+
+    }
+
+    &.plans-card {
+      max-width: 100%;
+
+      // #plans-wrapper old ubication
+    }
+  }
+
+  // responsive
+  .inner-plans {
+    &.only-desktop {
+      display: block;
+    }
+
+    &.only-mobile {
+      display: none;
+    }
+  }
+
+  $textColor: #37474f;
+  @media only screen and (max-width: 575px) {
+    // TO MODIFY PLANS MOBILE STYLES GO TO COMPONENT DEFINITION
+    #plans-wrapper {
+      padding-top: 0 !important;
+      .plan-actions{
+        .btn{
+          width: 100%;
+        }
+      }
+    }
+    .step-card {
+      padding: 12px 12px 0;
+
+      .question {
+        font-size: 1rem;
+      }
+
+      .btn-selector {
+        font-size: 1rem;
+      }
+
+      .mini-question {
+        font-size: 1rem;
+        line-height: 1.2;
+      }
+
+      // planes
+      .inner-plans {
+        background: none !important;
+        border: none !important;
+        min-width: 320px !important;
+
+        &.only-desktop {
+          display: none;
+        }
+
+        &.only-mobile {
+          display: block;
+        }
+
+        .plan-card {
+          background: #fff;
+          padding: 18px 18px 0;
+          margin-bottom: 10px;
+          border: 1px solid #cfd8dc;
+          border-radius: 10px;
+
+          .ribbon {
+            text-align: center;
+            font-weight: bold;
+            font-size: .9rem;
+
+            &.custom, &.reco {
+              text-transform: uppercase;
+              margin-bottom: 6px;
+              padding: 3px 0;
+            }
+
+            &.custom {
+              color: #78909c;
+              background: #E0E8F4;
+            }
+
+            &.reco {
+              color: #3a76db;
+              background: #D5E3FB;
+            }
+          }
+
+          .name {
+            font-weight: bold;
+            font-size: 1.15rem;
+            color: $textColor;
+          }
+
+          .price {
+            font-weight: bold;
+            font-size: 1.3rem;
+            color: $textColor;
+
+            .amount {
+
+            }
+
+            .decimal {
+
+            }
+
+            .month {
+              color: $textColor;
+              font-weight: normal;
+              font-size: .9rem;
+            }
+          }
+
+          .services-wrapper {
+            .text-toggle-on {
+              display: block;
+            }
+
+            .text-toggle-off {
+              display: none;
+            }
+
+            .services {
+              //visibility:hidden;
+              height: 0;
+              transform-origin: 50% 0%;
+              transform: scaleY(0%);
+              transition: .15s;
+              overflow: hidden;
+
+              font-size: .9rem;
+
+              .service {
+                color: $textColor;
+              }
+            }
+
+            .toggle-services {
+              font-size: .9rem;
+              border-top: 1px solid #cfd8dc;
+              padding: 10px 0;
+              margin: 15px 0 0;
+            }
+
+            &.services-toggle-on {
+              .services {
+                transform: scaleY(100%);
+                //visibility:visible;
+                height: auto;
+              }
+
+              .text-toggle-on {
+                display: none;
+              }
+
+              .text-toggle-off {
+                display: block;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // transition effects
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity 0.3s ease-out;
+  }
+
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
+  }
+}
+
